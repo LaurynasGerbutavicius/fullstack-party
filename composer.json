@@ -8,12 +8,14 @@
         "hwi/oauth-bundle": "^0.6.3",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/httplug-bundle": "^1.11",
+        "sensio/framework-extra-bundle": "^5.2",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
         "symfony/lts": "^4@dev",
         "symfony/templating": "^4.1",
         "symfony/twig-bundle": "^4.1",
+        "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
