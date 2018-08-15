@@ -1,6 +1,7 @@
 {
     "devDependencies": {
         "@symfony/webpack-encore": "^0.19.0",
+        "babel-preset-react": "^6.24.1",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -10,5 +11,12 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production"
+    },
+    "dependencies": {
+        "moment": "^2.22.2",
+        "prop-types": "^15.6.2",
+        "react": "^16.4.2",
+        "react-color": "^2.14.1",
+        "react-dom": "^16.4.2"
     }
 }

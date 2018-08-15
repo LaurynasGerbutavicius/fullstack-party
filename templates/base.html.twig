@@ -8,7 +8,9 @@
         {% endblock %}
     </head>
     <body>
+    <div class="screen">
         {% block body %}{% endblock %}
+    </div>
         {% block javascripts %}
             <script src="{{ asset('build/app.js') }}"></script>
         {% endblock %}

@@ -12,7 +12,7 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 /**
@@ -26,10 +26,9 @@ class IssueController extends Controller
 
     /**
      * @Route("/list", name="issue_list")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function showList(Request $request)
+    public function showList()
     {
         return $this->render('issue/list.html.twig');
     }
@@ -37,12 +36,13 @@ class IssueController extends Controller
 
     /**
      * @Route("/show/{id}", name="issue_show")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
-        return $this->render('issue/show.html.twig');
+        return $this->render('issue/show.html.twig', [
+            'id' => $id
+        ]);
     }
 
 

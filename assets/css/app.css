@@ -1,11 +1,62 @@
-.login-container {
+body {
+    margin: 0;
+}
+
+.screen {
     width: 100vw;
     height: 100vh;
+}
+
+.center-items {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-body {
-    margin: 0;
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.logout {
+    padding-right: 50px;
+}
+
+.half {
+    display: flex;
+}
+
+.half > div {
+    flex-basis: 50%;
+}
+
+.issue-summary {
+    height: 10vh;
+}
+
+.issue-summary > a {
+    padding: 10px;
+}
+
+.issue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.issue-items{
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.nav-pages {
+    height: 10vh;
+}
+
+.nav-pages > .paginate {
+    width: 35px;
+    height: 35px;
 }
