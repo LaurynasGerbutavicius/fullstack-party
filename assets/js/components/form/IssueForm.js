@@ -33,8 +33,8 @@ class IssueForm extends Component {
 
     }
 
-    getIssueData(id) {
-        return fetch(`https://api.github.com/repos/symfony/symfony/issues/${id}?client_id=a4c6b02671bb392339e7&client_secret=f93a312864ad97765736a8b0f543ba769679b454`)
+    getIssueData(number) {
+        return fetch(`/api/issue/${number}`)
             .then((response) => {
                 return response.json()
             })
@@ -43,8 +43,8 @@ class IssueForm extends Component {
             });
     }
 
-    getCommentsData(id) {
-        return fetch(`https://api.github.com/repos/symfony/symfony/issues/${id}/comments?client_id=a4c6b02671bb392339e7&client_secret=f93a312864ad97765736a8b0f543ba769679b454`)
+    getCommentsData(number) {
+        return fetch(`/api/issue_comments/${number}`)
             .then((response) => {
                 return response.json()
             })

@@ -42,7 +42,7 @@ class IssueList extends Component {
     }
 
     getIssueCount(issue_state) {
-        return fetch(`https://api.github.com/search/issues?q=repo:symfony/symfony+type:issue+state:${issue_state}&client_id=a4c6b02671bb392339e7&client_secret=f93a312864ad97765736a8b0f543ba769679b454`)
+        return fetch(`/api/issue_count/${issue_state}`)
             .then((response) => {
                 return response.json()
             })
@@ -52,7 +52,7 @@ class IssueList extends Component {
     }
 
     getIssues(issue_state, page) {
-        return fetch(`https://api.github.com/repos/symfony/symfony/issues?state=${issue_state}&page=${page}&client_id=a4c6b02671bb392339e7&client_secret=f93a312864ad97765736a8b0f543ba769679b454`)
+        return fetch(`/api/issue_list/${issue_state}/${page}`)
             .then((response) => {
                 return response.json()
             })
