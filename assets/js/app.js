@@ -12,6 +12,10 @@ import IssueList from "./components/list/IssueList";
 import IssueForm from "./components/form/IssueForm";
 
 require('../css/app.css');
+require('../css/login.scss');
+require('../css/form.scss');
+require('../css/list.scss');
+require('../css/header.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // var $ = require('jquery');

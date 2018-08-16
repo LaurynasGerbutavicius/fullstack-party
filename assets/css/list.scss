@@ -1,0 +1,216 @@
+@import 'vars';
+
+%underline {
+  text-decoration: underline;
+}
+
+%pointer {
+  cursor: pointer;
+}
+
+.half {
+  display: flex;
+}
+
+.half > div {
+  width: 50%;
+}
+
+.issue-summary > a {
+  padding: 10px;
+}
+
+
+.issue-items{
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.issue-summary {
+  height: 10vh;
+
+  .filter {
+    font-size: 14pt;
+    opacity: 0.4;
+  }
+
+  .filter.active {
+    opacity: 1;
+  }
+
+  .filter:hover {
+    @extend %pointer;
+    color: $highlightColor;
+  }
+}
+
+.issue-wrapper {
+  margin: 0 10px 20px 10px;
+}
+
+.issue-item {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  font-size: 15pt;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.issue-main {
+  width: calc(100% - 85px - 56px);
+}
+
+.comments-count {
+  font-size: 13pt;
+  margin: 16px;
+}
+
+.comments-count:hover {
+  @extend %underline;
+}
+
+.comments-count::before {
+  background-image: url("../images/ico-comments.png");
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  margin: 0 7px;
+}
+
+.details {
+  font-size: 13pt;
+
+  .time {
+    opacity: 0.4;
+  }
+}
+
+.user {
+  color: $highlightColor;
+  opacity: 1;
+}
+.user:hover {
+  @extend %underline;
+}
+
+
+%ico {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: inline-block;
+  margin: 0 7px;
+}
+
+.ico-open {
+  @extend %ico;
+  background-image: url("../images/ico-open.png");
+}
+
+.ico-closed {
+  @extend %ico;
+  background-image: url("../images/ico-closed.png");
+}
+
+.ico-highlight {
+  filter: invert(83%) sepia(45%) saturate(717%) hue-rotate(25deg) brightness(88%) contrast(86%);
+  margin: 0 20px;
+}
+
+.issue-list, .nav-pages {
+  background-color: #f5f5f5;
+}
+
+.label {
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 2px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.label.white {
+  color: #ffffff;
+}
+
+.nav-pages {
+  font-size: 13pt;
+  height: 10vh;
+
+  .paginate.text {
+    width: auto;
+    margin: 0 20px;
+  }
+
+  .paginate {
+    @extend %pointer;
+    width: 35px;
+    height: 35px;
+  }
+
+  .paginate.text:not(.disabled) {
+    color: $highlightColor;
+  }
+  .paginate.text:not(.disabled):hover {
+    @extend %underline;
+  }
+
+  .paginate.bubble {
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin: 0 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+  }
+
+  .paginate.bubble.active {
+    background-color: $highlightColor;
+  }
+}
+
+.logo-big {
+  background-image: url("../images/img.png");
+  background-size: cover;
+  flex-direction: column;
+  color: #ffffff;
+
+  p.text-big {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  p.text-secondary {
+    font-size: 20px;
+  }
+
+  .logo-small {
+    background-image: url("../images/logotype-testio-small.png");
+    background-size: cover;
+    height: 17px;
+    width: 67px;
+    display: inline-block;
+  }
+}
+
+.title {
+  word-wrap: break-word;
+}
+
+@media screen and (max-width:1000px) {
+  .half .issue-list {
+    width: 100%;
+  }
+  .logo-big {
+    display: none;
+  }
+}

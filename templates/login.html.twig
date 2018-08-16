@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
-    <div class="center-items">
-        <a href="{{ hwi_oauth_login_url('github') }}">Login</a>
+    <div class="login-page screen">
+        <div class="bg-overlay screen"></div>
+        <div class="bg-img-container screen">
+            <div class="bg-img screen"></div>
+        </div>
+        <div class="center-items screen">
+            <div class="login-logo"></div>
+            <a class="login-btn" href="{{ hwi_oauth_login_url('github') }}">Login With GitHub</a>
+        </div>
     </div>
 {% endblock %}

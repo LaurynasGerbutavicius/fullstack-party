@@ -6,18 +6,22 @@ class IssueItem extends Component {
 
     render() {
         return (
-            <a className="issue-item" href={`/issue/show/${this.props.number}`}>
+            <div className="issue-wrapper">
+            <div className={`issue-item ${this.props.state}`} onClick={() => window.location.href=`/issue/show/${this.props.number}`}>
+                <span className={`ico-${this.props.state} ico-highlight`}></span>
                 <div className="issue-main">
                     <p className="title">
                         {this.props.title}
                         {this.props.labels.map((label) => (<IssueLabel key={label.id} id={label.id} color={label.color} name={label.name} />))}
                     </p>
                     <p className="details">
-                        #{this.props.number} opened {moment(this.props.created).fromNow()} by {this.props.user}
+                        <span className="time">#{this.props.number} opened {moment(this.props.created).fromNow()} by </span>
+                        <span className="user">{this.props.user}</span>
                     </p>
                 </div>
                 <div className="comments-count">{this.props.comments}</div>
-            </a>)
+            </div>
+            </div>)
     }
 }
 

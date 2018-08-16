@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import IssueTitle from "./IssueTitle";
 import IssueComment from "./IssueComment";
 
@@ -60,6 +60,7 @@ class IssueForm extends Component {
         let issue = this.state.issue;
         return (
             <div>
+                <a className="back" href="/issue/list"><i className="ico-back"></i> Back to Issues</a>
                 <IssueTitle title={issue.title} number={issue.number} state={issue.state}
                             created={issue.created_at} comments={issue.comments} user={issue.user.login}/>
                 {this.state.comments.map(comment => (

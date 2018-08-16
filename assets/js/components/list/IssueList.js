@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import IssueItem from "./IssueItem";
 import IssueFilterItem from "./IssueFilterItem";
 import Paginator from "./Paginator";
+import DemoList from "../../demo/DemoList";
 
 class IssueList extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class IssueList extends Component {
             closed_count: null,
             state: 'open',
             page: 1,
-            total_pages: 1,
+            total_pages: null,
         }
     }
 
@@ -26,6 +27,9 @@ class IssueList extends Component {
     }
 
     getData(state = 'open', page = 1) {
+        if (this.state.loaded) {
+            this.setState({loaded: false, state, page});
+        }
         let issues = this.getIssues(state, page);
         let open_count = this.state.open_count ? this.state.open_count : this.getIssueCount('open');
         let closed_count = this.state.closed_count ? this.state.closed_count : this.getIssueCount('closed');
@@ -63,7 +67,7 @@ class IssueList extends Component {
 
     render() {
         if (!this.state.loaded) {
-            return null
+            return this.getLoader();
         }
         return (
             <div>
@@ -74,11 +78,41 @@ class IssueList extends Component {
                 <div className="issue-items" id="items">
                     {this.state.issues.map(issue => (
                         <IssueItem key={issue.number} number={issue.number} title={issue.title} labels={issue.labels} created={issue.created_at}
-                                   user={issue.user.login} comments={issue.comments}/>
+                                   user={issue.user.login} comments={issue.comments} state={issue.state}/>
                         )
                     )}
                 </div>
                 <Paginator onPageChange={(e)=>this.getData(this.state.state, parseInt(e.currentTarget.dataset.page))} page={this.state.page} total_pages={this.state.total_pages}/>
+            </div>
+        );
+    }
+
+    getLoader() {
+        const demoList = new DemoList();
+        const demoIssues = demoList.getIssues()
+            .sort(function(a, b){return 0.5 - Math.random()});
+        const demoOpenCount = this.state.open_count ? this.state.open_count : 123;
+        const demoClosedCount = this.state.closed_count ? this.state.closed_count : 456;
+        const demoPage = this.state.page ? this.state.page : 1;
+        const demoTotalPages = this.state.total_pages ? this.state.total_pages : 10;
+        const demoActiveState = this.state.state ? this.state.state : 'open';
+
+        return (
+            <div className="loading">
+                <div>
+                    <div className="issue-summary center-items">
+                        <IssueFilterItem active={demoActiveState} name="Open" type="open" count={demoOpenCount} />
+                        <IssueFilterItem active={demoActiveState} name="Closed" type="closed" count={demoClosedCount} />
+                    </div>
+                    <div className="issue-items" id="items">
+                        {demoIssues.map(issue => (
+                                <IssueItem key={issue.number} number={issue.number} title={issue.title} labels={[]} created={issue.created_at}
+                                           user={issue.user.login} comments={issue.comments} state={issue.state}/>
+                            )
+                        )}
+                    </div>
+                    <Paginator page={demoPage} total_pages={demoTotalPages}/>
+                </div>
             </div>
         );
     }

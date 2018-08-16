@@ -1,0 +1,40 @@
+@import 'vars';
+
+$colorBlackish: #2f3254;
+
+.logout a {
+    font-size: 14pt;
+    color: $colorBlackish;
+    text-decoration: none;
+}
+
+.logout a:hover {
+  color: $highlightColor;
+}
+
+.logout::before {
+  background-image: url('../images/ico-logout.png');
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: inline-block;
+  margin: 0 7px;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+
+  .logo {
+    background-image: url('../images/logotype-testio..png');
+    width: 115px;
+    height: 30px;
+    margin-left: 40px;
+  }
+}
+
+.logout {
+  padding-right: 50px;
+}

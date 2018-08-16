@@ -13,6 +13,8 @@ class PaginatorItem extends Component {
             return <a className={classes}>{this.props.title}</a>
         }
 
+        classes += (this.props.text ? " text" : " bubble");
+
         return <a onClick={onClick} className={classes} data-page={this.props.page}>{this.props.title}</a>
     }
 }
