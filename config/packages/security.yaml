@@ -15,9 +15,9 @@ security:
                 provider: hwi
                 resource_owners:
                     github:          "/login/check-github"
-                login_path:        /login
+                login_path:        /
                 #use_forward:       false
-                failure_path:      /login
+                failure_path:      /
                 oauth_user_provider:
                     service: hwi_oauth.user.provider
 
