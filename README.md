@@ -1,3 +1,18 @@
+To run this project do the following:
+
+`composer install`
+
+ `yarn install`
+ 
+ `yarn encore dev`
+
+`./bin/console server:start`
+
+`open 127.0.0.1:8000`
+
+
+
+
 # Great task for Great Fullstack Developer
 
 If you found this task it means we are looking for you!
